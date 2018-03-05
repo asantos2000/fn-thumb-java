@@ -9,14 +9,14 @@ Deployed to FnProject local server (```$ fn start```)
 
 ```bash
 $ fn routes list myapp
-path		image							endpoint
-/fn-thumb	adsantos/fn-thumb:0.0.13		localhost:8080/r/myapp/fn-thumb
+path		image				endpoint
+/fn-thumb	adsantos/fn-thumb:0.0.13	localhost:8080/r/myapp/fn-thumb
 /fn.thumb	adsantos/fn-thumb-java:0.0.6	localhost:8080/r/myapp/fn.thumb
 ```
 
 ## Node.JS
 
-```
+```bash
 # Webhook
 Request thumnbnail for:
 - EventType: s3:ObjectCreated:Put
@@ -27,7 +27,7 @@ Uploading new thumbail to "images-processed"
 Successfully uploaded "pexels-photo-thumbnail.jpg" with md5sum "5c1a0d7b89fdee93980e05188f089d9d"
 ```
 
-```
+```bash
 # fn run --link minio-srv < request.json
 Request thumnbnail for:
 - EventType: s3:ObjectCreated:Put
@@ -40,7 +40,7 @@ Successfully uploaded "pexels-photo-thumbnail.jpg" with md5sum "5c1a0d7b89fdee93
 
 ## Java
 
-```
+```bash
 # Webhook
 bucketName: images
 objectName: pexels-photo.jpg
@@ -53,7 +53,7 @@ took (ms): 4786.703273
 Ok
 ```
 
-```
+```bash
 # fn run --link minio-srv < request.json
 Building image adsantos/fn-thumb-java:0.0.8
 bucketName: images
@@ -67,7 +67,7 @@ took (ms): 4480.55853
 Ok
 ```
 
-In this operation, Node was **350** times faster than Java.
+For this operation, Node was **350** times faster than Java.
 
 It use less resource than java too, to run this test, the func.yaml for java was configure to use 256MB of memory.
 
@@ -87,7 +87,7 @@ path: /fn.thumb
 
 With default value of 128MB, it raises java.lang.OutOfMemoryError.
 
-```
+```bash
 $ fn calls list myapp
 
 D: 01C7VTPR8687WGP00000000000
