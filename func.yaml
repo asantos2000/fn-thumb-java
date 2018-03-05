@@ -1,0 +1,9 @@
+name: adsantos/fn-thumb-java
+version: 0.0.8
+runtime: java
+cmd: com.origoconsul.fn.thumb.App::handleRequest
+build_image: fnproject/fn-java-fdk-build:jdk9-1.0.58
+run_image: fnproject/fn-java-fdk:jdk9-1.0.58
+type: async
+memory: 256
+path: /fn.thumb
